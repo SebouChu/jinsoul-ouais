@@ -11,10 +11,12 @@
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
+                class: 'do-not-warn-before-unload',
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
     <%= f.input :password,
                 required: false,
+                class: 'do-not-warn-before-unload',
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
