@@ -14,12 +14,14 @@ gem 'delayed_job_web'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'jbuilder', '~> 2.7'
 gem 'caxlsx_rails'
-gem 'devise'
+# gem 'devise'
+gem 'devise', git: 'https://github.com/heartcombo/devise.git', branch: 'ca-omniauth-2' # Waiting for OmniAuth 2 fix
 gem 'devise-i18n'
 gem 'cancancan'
 gem 'simple_form'
 gem 'enum_help'
 gem 'kaminari'
+gem 'omniauth-discord'
 
 gem 'image_processing', '~> 1.2'
 gem 'sassc-rails'
@@ -27,6 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'bootstrap4-kaminari-views'
+gem 'font-awesome-sass', '~> 5.15.1'
 gem 'gdpr'
 
 group :development, :test do

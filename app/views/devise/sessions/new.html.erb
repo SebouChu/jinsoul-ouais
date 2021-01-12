@@ -1,5 +1,12 @@
 <h2>Log in</h2>
 
+<%= link_to user_discord_omniauth_authorize_path, method: :post, class: 'btn btn-discord my-5' do %>
+  <%= icon('fab', 'discord') %>
+  Sign in with Discord
+<% end %>
+
+<p>Or sign in with credentials</p>
+
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -17,4 +24,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= link_to "Sign up", new_registration_path(resource_name) %>
