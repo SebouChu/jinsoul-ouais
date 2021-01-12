@@ -11,9 +11,9 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     user = where(email: auth.info.email).first_or_initialize do |user|
-      user.discord_uid = auth.uid
       user.password = "#{Devise.friendly_token[0, 20]}!"
     end
+    user.discord_uid = auth.uid
     user.from_discord = true
     user.save
     user
