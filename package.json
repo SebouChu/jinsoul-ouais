@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jquery-warn-before-unload": "^1.0.4"
+  }
+}
