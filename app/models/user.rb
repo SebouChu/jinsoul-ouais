@@ -7,8 +7,4 @@ class User < ApplicationRecord
   def to_s
     email
   end
-
-  def to_param
-    uid
-  end
 end
