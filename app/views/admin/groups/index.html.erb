@@ -1,0 +1,35 @@
+<%= content_for :title, 'Groups' %>
+
+<div class="container">
+  <h1>Groups (<%= @groups.total_count %>)</h1>
+
+  <div class="actions mb-3">
+    <%= link_to 'New Group', new_admin_group_path, class: 'btn btn-success' %>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group, [:admin, group] %></td>
+          <td>
+            <%= link_to 'Edit', [:edit, :admin, group], class: 'btn btn-sm btn-primary' %>
+            <%= link_to 'Destroy',
+                        [:admin, group],
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: 'btn btn-sm btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @groups, theme: 'twitter-bootstrap-4' %>
+</div>

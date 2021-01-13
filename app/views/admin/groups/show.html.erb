@@ -1,0 +1,14 @@
+<%= content_for :title, @group %>
+
+<div class="container">
+  <h1><%= @group %></h1>
+
+  <div class="actions">
+    <%= link_to 'Edit', [:edit, :admin, @group], class: 'btn btn-primary' %>
+    <%= link_to 'Destroy',
+                [:admin, @group],
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
+  </div>
+</div>

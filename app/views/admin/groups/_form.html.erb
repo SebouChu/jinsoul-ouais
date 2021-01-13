@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, group] do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name %>
+    </div>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

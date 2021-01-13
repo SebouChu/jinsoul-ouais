@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:discord]
+
+  include WithUuid
 
   enum role: { visitor: 0, admin: 50 }
 
@@ -13,8 +15,6 @@ class User < ApplicationRecord
   validates_presence_of :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
   validate :password_complexity
-
-  before_validation :generate_uuid, on: :create
 
   def self.from_omniauth(auth)
     user = where(email: auth.info.email).first_or_initialize do |user|
@@ -30,18 +30,7 @@ class User < ApplicationRecord
     email
   end
 
-  def to_param
-    uuid
-  end
-
   protected
-
-  def generate_uuid
-    loop do
-      self.uuid = SecureRandom.uuid
-      break unless self.class.unscoped.where(uuid: uuid).exists?
-    end
-  end
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?

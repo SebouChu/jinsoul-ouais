@@ -2,6 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   load_and_authorize_resource find_by: :uuid, id_param: :uuid
 
   def index
+    @users = @users.page(params[:page])
   end
 
   def show

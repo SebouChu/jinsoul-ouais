@@ -17,7 +17,7 @@ Un thème possède :
 - un nom
 - un booléen "Special"
   - définit des règles comme pour le thème Winter 2020
-  - IV 10 only
+    - IV 10 only
 - des idols
   - via une association HABTM
 

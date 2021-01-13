@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, param: :uuid
+    resources :groups, param: :uuid
     root 'dashboard#index'
   end
 
