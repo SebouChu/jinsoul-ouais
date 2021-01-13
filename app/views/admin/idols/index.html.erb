@@ -1,14 +1,17 @@
-<%= content_for :title, @group %>
+<%= content_for :title, 'Idols' %>
 
 <div class="container">
-  <h1><%= @group %></h1>
+  <h1>Idols (<%= @idols.total_count %>)</h1>
 
-  <h2>Idols</h2>
+  <div class="actions mb-3">
+    <%= link_to 'New Idol', new_admin_idol_path, class: 'btn btn-success' %>
+  </div>
 
   <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th>Name</th>
+        <th>Group</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
@@ -16,6 +19,7 @@
       <% @idols.each do |idol| %>
         <tr>
           <td><%= link_to idol.name, [:admin, idol] %></td>
+          <td><%= link_to idol.group, [:admin, idol.group] %></td>
           <td>
             <%= link_to 'Edit', [:edit, :admin, idol], class: 'btn btn-sm btn-primary' %>
             <%= link_to 'Destroy',
@@ -29,12 +33,5 @@
     </tbody>
   </table>
 
-  <div class="actions">
-    <%= link_to 'Edit', [:edit, :admin, @group], class: 'btn btn-primary' %>
-    <%= link_to 'Destroy',
-                [:admin, @group],
-                method: :delete,
-                data: { confirm: 'Are you sure?' },
-                class: 'btn btn-danger' %>
-  </div>
+  <%= paginate @idols, theme: 'twitter-bootstrap-4' %>
 </div>

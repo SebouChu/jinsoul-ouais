@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+blackpink_jisoo:
+  name: Jisoo
+  group: blackpink
+
+blackpink_lisa:
+  name: Lisa
+  group: blackpink
+
+mamamoo_hwasa:
+  name: Hwasa
+  group: mamamoo

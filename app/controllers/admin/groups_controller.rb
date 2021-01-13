@@ -6,6 +6,7 @@ class Admin::GroupsController < Admin::ApplicationController
   end
 
   def show
+    @idols = @group.idols.ordered
   end
 
   def new

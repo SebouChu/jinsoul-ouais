@@ -1,0 +1,16 @@
+<%= content_for :title, @idol %>
+
+<div class="container">
+  <h1><%= @idol %></h1>
+
+  <p><strong>Group:</strong> <%= link_to @idol.group, [:admin, @idol.group] %></p>
+
+  <div class="actions">
+    <%= link_to 'Edit', [:edit, :admin, @idol], class: 'btn btn-primary' %>
+    <%= link_to 'Destroy',
+                [:admin, @idol],
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
+  </div>
+</div>

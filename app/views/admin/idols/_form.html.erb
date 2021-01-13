@@ -1,0 +1,12 @@
+<%= simple_form_for [:admin, idol] do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name %>
+      <%= f.association :group,
+                        collection: Group.all.ordered,
+                        include_blank: 'Select a group' %>
+    </div>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
