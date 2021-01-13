@@ -20,7 +20,11 @@
         <tr>
           <td><%= link_to user.email, [:admin, user] %></td>
           <td>
-            <span class="badge badge-dark"><%= user.role.humanize %></span><br>
+            <% if user.admin? %>
+              <span class="badge badge-primary">Admin</span>
+            <% else %>
+              <span class="badge badge-dark">Visitor</span>
+            <% end %>
           </td>
           <td>
             <%= link_to 'Edit', [:edit, :admin, user], class: 'btn btn-sm btn-primary' %>
