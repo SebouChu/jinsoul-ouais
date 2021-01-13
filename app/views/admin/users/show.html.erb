@@ -6,6 +6,7 @@
   <p><strong>Email:</strong> <%= @user.email %></p>
   <p><strong>Discord ID:</strong> <%= @user.discord_uid %></p>
   <p><strong>Role:</strong> <%= @user.role.humanize %></p>
+  <p><strong>Logged via Discord:</strong> <%= @user.from_discord? %></p>
 
   <div class="actions">
     <%= link_to 'Edit', [:edit, :admin, @user], class: 'btn btn-primary' %>
