@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, user] do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :email %>
+      <%= f.input :password,
+                  required: user.new_record?,
+                  hint: 'Leave blank if you do not wish to change the password' %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :discord_uid, label: 'Discord ID' %>
+      <%= f.input :role, include_blank: false %>
+    </div>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

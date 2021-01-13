@@ -28,6 +28,10 @@
             Connected as <%= current_user %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if current_user.admin? %>
+              <%= link_to 'Admin', admin_root_path, class: 'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+            <% end %>
             <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>

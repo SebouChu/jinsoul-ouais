@@ -1,0 +1,18 @@
+<%= content_for :title, @user %>
+
+<div class="container">
+  <h1><%= @user %></h1>
+
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  <p><strong>Discord ID:</strong> <%= @user.discord_uid %></p>
+  <p><strong>Role:</strong> <%= @user.role.humanize %></p>
+
+  <div class="actions">
+    <%= link_to 'Edit', [:edit, :admin, @user], class: 'btn btn-primary' %>
+    <%= link_to 'Destroy',
+                [:admin, @user],
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
+  </div>
+</div>
