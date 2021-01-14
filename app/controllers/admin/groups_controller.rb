@@ -2,7 +2,7 @@ class Admin::GroupsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :uuid, id_param: :uuid
 
   def index
-    @groups = @groups.page(params[:page])
+    @groups = @groups.ordered.page(params[:page])
   end
 
   def show

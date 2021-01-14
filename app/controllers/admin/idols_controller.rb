@@ -2,7 +2,7 @@ class Admin::IdolsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :uuid, id_param: :uuid
 
   def index
-    @idols = @idols.includes(:group).page(params[:page])
+    @idols = @idols.includes(:group).ordered.page(params[:page])
   end
 
   def show

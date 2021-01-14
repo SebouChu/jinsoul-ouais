@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'enum_help'
 gem 'kaminari'
 gem 'omniauth-discord'
+gem 'roo', '~> 2.8.0'
 
 gem 'image_processing', '~> 1.2'
 gem 'sassc-rails'
